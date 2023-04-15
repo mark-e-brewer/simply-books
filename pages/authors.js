@@ -1,7 +1,9 @@
+import AuthorCard from '../components/AuthorCard';
+
 export default function AuthorsPage() {
   return (
     <>
-      <h1>Hello World!</h1>
+      <AuthorCard />
     </>
   );
 }

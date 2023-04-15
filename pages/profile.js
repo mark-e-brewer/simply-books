@@ -1,5 +1,10 @@
 import React from 'react';
+import UserComp from '../components/UserComp';
 
 export default function Profile() {
-  return <div>profile here</div>;
+  return (
+    <>
+      <UserComp />
+    </>
+  );
 }

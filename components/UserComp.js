@@ -1,27 +1,12 @@
 import React from 'react';
-// import { useRouter } from 'next/router';
+import { useAuth } from '../utils/context/authContext';
 
 export default function UserComp() {
-  // const router = useRouter();
-  // const { firebaseKey } = router.query;
+  const { user } = useAuth();
 
   return (
     <>
-      <h1>Hello World!</h1>
+      <div>prop test: {user.image}{user.name}{user.email}{user.metadata.lastSignInTime}</div>
     </>
   );
 }
-
-// UserComp.propTypes = {
-//   image: PropTypes.string,
-//   name: PropTypes.string,
-//   email: PropTypes.string,
-//   lastLogin: PropTypes.string,
-// };
-
-// UserComp.defualtProps = {
-//   image: 'Defualt Image',
-//   name: 'Defualt Name',
-//   email: 'Defualt Email',
-//   lastLogin: 'Defualt Login',
-// };
