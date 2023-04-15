@@ -5,7 +5,7 @@ const dbUrl = clientCredentials.databaseURL;
 
 // FIXME:  GET ALL AUTHORS
 const getAuthors = (uid) => new Promise((resolve, reject) => {
-  axios.get(`${dbUrl}/authors.json?orderBy="uid"&equalTo="${uid}"`)
+  axios.get(`${dbUrl}/Authors.json?orderBy="uid"&equalTo="${uid}"`)
     .then((response) => {
       if (response.data) {
         resolve(Object.values(response.data));
@@ -20,7 +20,7 @@ const getAuthors = (uid) => new Promise((resolve, reject) => {
 const createAuthor = () => {};
 
 const getSingleAuthor = (firebaseKey) => new Promise((resolve, reject) => {
-  axios.get(`${dbUrl}/authors/${firebaseKey}.json`)
+  axios.get(`${dbUrl}/Authors/${firebaseKey}.json`)
     .then((response) => resolve(response.data))
     .catch(reject);
 });
