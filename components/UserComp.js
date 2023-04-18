@@ -1,5 +1,5 @@
-/* eslint-disable @next/next/no-img-element */
 import React from 'react';
+import { Card } from 'react-bootstrap';
 import { useAuth } from '../utils/context/authContext';
 
 export default function UserComp() {
@@ -7,19 +7,21 @@ export default function UserComp() {
 
   return (
     <>
-      <div
+      <Card
         className="card"
         style={{
-          width: '18rem',
+          width: '15rem',
+          alignItems: 'center',
+          textAlign: 'center',
         }}
       >
-        <img src={user.photoURL} className="card-img-top" alt="profile" />
-        <div className="card-body">
-          <h5 className="card-title" id="pfl-txt">{user.displayName}</h5>
-          <p className="card-text" id="pfl-txt">{user.email}</p>
-          <p className="card-text" id="pfl-txt">Last sign in: {user.metadata.lastSignInTime}</p>
-        </div>
-      </div>
+        <Card.Img style={{ borderRadius: '140px', width: '190px', marginTop: '15px' }} src={user.photoURL} alt="profile" />
+        <Card.Body>
+          <Card.Title style={{ color: 'black' }}>{user.displayName}</Card.Title>
+          <Card.Text style={{ color: 'black' }}>{user.email}</Card.Text>
+          <Card.Text>Last sign in: {user.metadata.lastSignInTime}</Card.Text>
+        </Card.Body>
+      </Card>
     </>
   );
 }

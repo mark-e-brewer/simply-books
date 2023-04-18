@@ -1,20 +1,22 @@
 import PropTypes from 'prop-types';
+import { Card } from 'react-bootstrap';
 
 export default function AuthorCard({ authorObj }) {
   return (
     <>
-      <div
+      <Card
         className="card"
         style={{
           width: '18rem',
+          margin: '10px',
         }}
       >
-        <div className="card-body">
-          <h5 className="card-title">{authorObj.first_name}</h5>
-          <h6 className="card-subtitle mb-2 text-muted">{authorObj.last_name}</h6>
-          <p className="card-text">{authorObj.email}</p>
-        </div>
-      </div>;
+        <Card.Body>
+          <Card.Title style={{ color: 'black' }}>{authorObj.first_name}</Card.Title>
+          <Card.Subtitle className="mb-2 text-muted">{authorObj.last_name}</Card.Subtitle>
+          <Card.Text style={{ color: 'black' }}>{authorObj.email}</Card.Text>
+        </Card.Body>
+      </Card>
     </>
   );
 }
