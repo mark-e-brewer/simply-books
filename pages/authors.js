@@ -6,18 +6,18 @@ import { getAuthors } from '../api/authorData';
 import { useAuth } from '../utils/context/authContext';
 
 export default function AuthorsPage() {
-  // TODO: Set a state for books
+  // Set a state for Authors
   const [authors, setAuthors] = useState([]);
 
-  // TODO: Get user ID using useAuth Hook
+  // Get user ID using useAuth Hook
   const { user } = useAuth();
 
-  // TODO: create a function that makes the API call to get all the books
+  //  create a function that makes the API call to get all the authors
   const getAllTheAuthors = () => {
     getAuthors(user.uid).then(setAuthors);
   };
 
-  // TODO: make the call to the API to get all the books on component render
+  // make the call to the API to get all the authors on component render
   useEffect(() => {
     getAllTheAuthors();
   // eslint-disable-next-line react-hooks/exhaustive-deps
