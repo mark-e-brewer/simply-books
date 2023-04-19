@@ -4,7 +4,7 @@ import { getSingleBook, deleteBook } from './bookData';
 const viewBookDetails = (bookFirebaseKey) => new Promise((resolve, reject) => {
   getSingleBook(bookFirebaseKey)
     .then((bookObject) => {
-      getSingleAuthor(bookObject.author_id)
+      getSingleAuthor(bookObject?.author_id)
         .then((authorObject) => {
           resolve({ authorObject, ...bookObject });
         });
