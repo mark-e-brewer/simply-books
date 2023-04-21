@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Form, FloatingLabel, Button } from 'react-bootstrap';
 import { useRouter } from 'next/router';
@@ -10,6 +10,7 @@ const initialState = {
   last_name: '',
   email: '',
   favorite: false,
+  firebaseKey: '',
 };
 
 export default function AuthorForm({ obj }) {
@@ -17,11 +18,11 @@ export default function AuthorForm({ obj }) {
   const router = useRouter();
   const { user } = useAuth();
 
-  // useEffect(() => {
-  //   getBooks(user.uid).then(setBooks);
-
-  //   if (obj.firebaseKey) setFormInput(obj);
-  // }, [obj, user]);
+  useEffect(() => {
+    if (obj.firebaseKey) {
+      setFormInput(obj);
+    }
+  }, [obj]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -33,9 +34,9 @@ export default function AuthorForm({ obj }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (obj.firebaseKey) {
+    if (formInput.firebaseKey) {
       updateAuthor(formInput)
-        .then(() => router.push(`/authors/${obj.firebaseKey}`));
+        .then(() => router.push(`/author/${obj.firebaseKey}`));
     } else {
       const payload = { ...formInput, uid: user.uid };
       createAuthor(payload).then(({ name }) => {
