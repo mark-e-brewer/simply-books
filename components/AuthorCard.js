@@ -24,7 +24,10 @@ export default function AuthorCard({ authorObj, onUpdate }) {
           <Card.Subtitle className="mb-2 text-muted">{authorObj.last_name}</Card.Subtitle>
           <Card.Text style={{ color: 'black' }}>{authorObj.email}</Card.Text>
           <Link href={`/author/${authorObj.firebaseKey}`} passHref>
-            <Button variant="primary" className="m-2">VIEW</Button>
+            <Button variant="info" className="m-2">VIEW</Button>
+          </Link>
+          <Link href={`/author/edit/${authorObj.firebaseKey}`} passHref>
+            <Button variant="primary">EDIT</Button>
           </Link>
           <Button variant="danger" onClick={deleteThisAuthor} className="m-2">
             DELETE
